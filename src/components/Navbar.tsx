@@ -12,21 +12,21 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 shadow-sm w-full overflow-x-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                <div className="flex justify-between items-center h-16">
+        <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 shadow-sm w-full overflow-hidden">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-16 min-w-0">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center space-x-2 group">
+                    <Link href="/" className="flex items-center space-x-2 group flex-shrink-0">
                         <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-xl group-hover:scale-105 transition-transform duration-200">
                             <MapPin className="h-6 w-6 text-white" />
                         </div>
-                        <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                             TripTide
                         </h1>
                     </Link>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
+                    <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
                         <Link 
                             href="/destinations" 
                             className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200 font-medium"
@@ -50,11 +50,11 @@ export default function Navbar() {
                         </Link>
                     </div>
 
-                    {/* Desktop Auth Buttons */}
-                    <div className="hidden md:flex items-center space-x-4">
+                    {/* Tablet/Desktop Auth Buttons */}
+                    <div className="hidden md:flex items-center space-x-2 lg:space-x-4 flex-shrink-0">
                         <Link 
                             href="/profile" 
-                            className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                            className="hidden lg:flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors duration-200"
                         >
                             <User className="h-4 w-4" />
                             <span>Profile</span>
@@ -67,20 +67,21 @@ export default function Navbar() {
                         </Link>
                         <Link 
                             href="/login" 
-                            className="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
+                            className="hidden lg:inline-block px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200"
                         >
                             Sign In
                         </Link>
                         <Link 
                             href="/signup" 
-                            className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg"
+                            className="px-3 lg:px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-md hover:shadow-lg text-sm lg:text-base"
                         >
-                            Get Started
+                            <span className="hidden sm:inline">Get Started</span>
+                            <span className="sm:hidden">Join</span>
                         </Link>
                     </div>
 
-                    {/* Mobile menu button */}
-                    <div className="md:hidden">
+                    {/* Mobile/Tablet menu button */}
+                    <div className="lg:hidden">
                         <button
                             onClick={toggleMenu}
                             className="p-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-lg transition-all duration-200"
@@ -90,9 +91,9 @@ export default function Navbar() {
                     </div>
                 </div>
 
-                {/* Mobile Navigation Menu */}
+                {/* Mobile/Tablet Navigation Menu */}
                 {isMenuOpen && (
-                    <div className="md:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md">
+                    <div className="lg:hidden border-t border-gray-200/50 bg-white/95 backdrop-blur-md">
                         <div className="px-2 pt-2 pb-3 space-y-1">
                             <Link 
                                 href="/destinations" 
